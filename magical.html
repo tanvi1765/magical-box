@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>magical</title>
+<head>
+  <!-- magical -->
+  <div class="container">
+    <div class="b-1"></div>
+  </div>
+  <style>
+    .container{
+      display: flex;
+      justify-content: space-around;
+    }
+    .b-1{
+      width: 150px;
+      height: 150px;
+      background-color:burlywood;
+      transition: all 0.5s;
+    }
+    .b-1:hover {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+
+<!-- magical-1 -->
+<div class="box">
+  <img class="box-image" src="image/OIP.jpg">
+  <div class="box-content">
+    <h2 class="box-title"></h2>
+    <p class="box-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id consequatur repudiandae assumenda dolor iusto nam ullam velit fugit inventore? Explicabo, repudiandae reprehenderit distinctio, quisquam officia necessitatibus dolorum aperiam ducimus quaerat velit omnis. Magnam, ipsam blanditiis fugit accusantium sapiente assumenda quis aperiam neque quod, dolore quaerat odio dolorum tenetur voluptates debitis quos animi. In animi aperiam cum, libero cumque iste eum eveniet voluptatibus quibusdam perferendis sapiente, similique blanditiis quod est unde, beatae dolor quis commodi veniam suscipit praesentium velit accusamus temporibus.
+    </p>
+  </div>
+</div>
+<style>
+  .box {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  
+  .box-image,
+  .box-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s;
+  }
+  
+  .box-image {
+    justify-content: center;
+  }
+  
+  .box-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #5e5c5c;
+  }
+  
+  .box:hover .box-image {
+    opacity: 1;
+  }
+  
+  .box:hover .box-content {
+    opacity: 0;
+  }
+  
+  </style>
+
+<!-- magical-2 -->
+  <div class="container">
+    <div class="square"></div>
+  </div>
+<style>
+  .square{
+      width: 400px;
+      height: 400px;
+      background-color: rgb(23, 23, 25);
+      transition: background-color 0.5s;
+}
+
+.square:hover {
+background-color: var(--random-color);
+}
+
+</style>
+</head>
+<body>
+
+  
+  
+<!-- magical -->
+<script>
+    const b = document.querySelector('.b');
+    b.addEventListener('mouseover', () => {
+    const randomWidth = Math.floor(Math.random() * 200) + 100; // Random width between 100 and 300
+    const randomHeight = Math.floor(Math.random() * 200) + 100; // Random height between 100 and 300
+    b.style.setProperty('--random-width', `${randomWidth}px`);
+    b.style.setProperty('--random-height', `${randomHeight}px`);
+});
+</script>
+<!-- magical-1 -->
+<script>
+        const box = document.querySelector('.box');
+        const boxImage = box.querySelector('.box-image');
+        const boxContent = box.querySelector('.box-content');
+
+box.addEventListener('mouseover', () => {
+  boxImage.src = 'image/OIP.jpg';
+  boxImage.alt = 'New Image';
+  boxContent.innerHTML = `
+    <h2 class="box-title">New Content</h2>
+    <p class="box-description">Some description about the new content.</p>
+  `;
+});
+
+  box.addEventListener('mouseout', () => {
+  boxImage.src = 'image/thumb.jpg';
+  boxImage.alt = 'Original Image';
+  boxContent.innerHTML = `
+    <h2 class="box-title">Original Content</h2>
+    <p class="box-description">Some description about the original content.</p>
+  `;
+});
+
+</script>
+<!-- magical-2 -->
+<script>
+  const square = document.querySelector('.square');
+square.addEventListener('mouseover', () => {
+const randomColor = getRandomColor();
+square.style.setProperty('--random-color', randomColor);
+});
+
+function getRandomColor() {
+const letters = '1234567890ABCD';
+let color = '#';
+for (let i = 0; i < 6; i++) {
+color += letters[Math.floor(Math.random() * 16)];
+}
+return color;
+}
+</script>
+
+
+
+
+</body>
+</html>
